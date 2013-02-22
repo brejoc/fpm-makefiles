@@ -15,5 +15,6 @@ package:
 	wget https://github.com/downloads/ginatrapani/todo.txt-cli/todo.txt_cli-$(VERSION).tar.gz
 	tar xf todo.txt_cli-$(VERSION).tar.gz
 	mv todo.txt_cli-$(VERSION)/todo.sh todo
+	patch todo < ./patches/todo.patch 
 	chmod +x todo
 	fpm -s dir -t deb -n $(NAME) -v $(VERSION) -a all --license GPLv3 -m "Jochen Breuer <brejoc@gmail.com>" --url "http://todotxt.com/" --deb-user root --deb-group root -d sed -d grep --prefix /usr/local/bin todo
