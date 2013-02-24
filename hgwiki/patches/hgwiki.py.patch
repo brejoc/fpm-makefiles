@@ -1,0 +1,20 @@
+--- hgwiki.py	2013-02-24 12:26:54.862620302 +0100
++++ hgwiki.py.dist	2013-02-24 16:32:33.577970860 +0100
+@@ -48,7 +48,7 @@
+ PAGES_DIR = ".hgwiki"
+ SERVER_PORT = 8001
+ SERVER_ADDRESS = "localhost"
+-TEMPLATE_PATH.append(os.path.join(file_path, 'views/'))
++TEMPLATE_PATH.append('/usr/local/share/mercurial-wiki/views/')
+ 
+ 
+ 
+@@ -56,7 +56,7 @@
+ 
+ @route('/static/:filename')
+ def server_static(filename):
+-    return static_file(filename, root=os.path.join(file_path, 'static/'))
++    return static_file(filename, root='/usr/local/share/mercurial-wiki/static/')
+ 
+ @route('/favicon.ico')
+ def favicon():
