@@ -23,8 +23,10 @@ prepare:
 	wget -P ./src https://bitbucket.org/brejoc/$(NAME)/raw/$(VERSION)/upgrade_mailer_py.ini
 	cp ./src/upgrade_mailer.py ./build/usr/local/bin/
 	cp ./src/upgrade_mailer_py.ini ./build/etc/
+	cp -r ./cfg/cron.daily ./build/etc/
 	chmod +x ./build/usr/local/bin/upgrade_mailer.py
+	chmod +x ./build/etc/cron.daily/upgrade_mailer
 
 
 package_deb: prepare
-	fpm -s dir -t deb -n $(PKG_NAME) -v $(VERSION) -a all --license GPLv3 -m "Jochen Breuer <brejoc@gmail.com>" --url "http://todotxt.com/" --deb-user root --deb-group root --config-files /etc/upgrade_mailer_py.ini -d python-apt -d python-xmpp -C ./build usr etc
+	fpm -s dir -t deb -n $(PKG_NAME) -v $(VERSION) -a all --license GPLv3 -m "Jochen Breuer <brejoc@gmail.com>" --url "http://todotxt.com/" --deb-user root --deb-group root --config-files /etc/upgrade_mailer_py.ini --config-files /etc/cron.daily/upgrade_mailer -d python-apt -d python-xmpp -C ./build usr etc
