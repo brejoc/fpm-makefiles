@@ -29,4 +29,4 @@ prepare:
 
 
 package_deb: prepare
-	fpm -s dir -t deb -n $(PKG_NAME) -v $(VERSION) -a all --license GPLv3 -m "Jochen Breuer <brejoc@gmail.com>" --url "http://todotxt.com/" --deb-user root --deb-group root --config-files /etc/upgrade_mailer_py.ini --config-files /etc/cron.daily/upgrade_mailer -d python-apt -d python-xmpp -C ./build usr etc
+	fpm -s dir -t deb -n $(PKG_NAME) -v $(VERSION) -a all --license GPLv3 -m "Jochen Breuer <brejoc@gmail.com>" --url "http://webgarbage.de/" --deb-user root --deb-group root --config-files /etc/upgrade_mailer_py.ini --config-files /etc/cron.daily/upgrade_mailer -d python-apt -d python-xmpp -C ./build usr etc
