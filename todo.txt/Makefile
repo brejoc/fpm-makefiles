@@ -11,6 +11,7 @@ clean:
 	rm -rf ./src/
 	rm -rf ./build/
 	rm -f $(NAME)_$(VERSION)_all.deb
+	rm -f $(NAME)-$(VERSION)-1.noarch.rpm
 
 
 prepare:
@@ -28,3 +29,6 @@ prepare:
 
 package_deb: prepare
 	fpm -s dir -t deb -n $(NAME) -v $(VERSION) -a all --license GPLv3 -m "Jochen Breuer <brejoc@gmail.com>" --url "http://todotxt.com/" --deb-user root --deb-group root --config-files /etc/todo.cfg -d sed -d grep -C ./build usr etc
+
+package_rpm: prepare
+	fpm -s dir -t rpm -n $(NAME) -v $(VERSION) -a all --license GPLv3 -m "Jochen Breuer <brejoc@gmail.com>" --url "http://todotxt.com/" --rpm-user root --rpm-group root --config-files /etc/todo.cfg -d sed -d grep -C ./build usr etc
