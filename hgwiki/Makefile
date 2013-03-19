@@ -14,7 +14,7 @@ clean:
 	rm -rf ./src/
 	rm -rf ./build/
 	rm -f $(PKG_NAME)_$(VERSION)_all.deb
-
+	rm -f $(PKG_NAME)-*.noarch.rpm
 
 prepare:
 	mkdir ./src
@@ -29,6 +29,11 @@ prepare:
 	cp -r ./src/mercurial-wiki/static ./src/mercurial-wiki/views ./build/usr/local/share/mercurial-wiki/
 	pushd ./build/usr/local/bin; ln -s ../mercurial-wiki/hgwiki.py hgwiki; popd;
 
+prepare_rpm:
+	cp ./src/mercurial-wiki/bottle.py ./build/usr/local/mercurial-wiki/.
 
 package_deb: prepare
 	fpm -s dir -t deb -n $(PKG_NAME) -v $(VERSION) -a all --license GPLv3 -m "Jochen Breuer <brejoc@gmail.com>" --url "http://webgarbage.de/" --deb-user root --deb-group root -d python-bottle -d python-jinja2 -C ./build usr
+
+package_rpm: prepare prepare_rpm
+	fpm -s dir -t rpm -n $(PKG_NAME) -v $(VERSION) -a all --license GPLv3 -m "Jochen Breuer <brejoc@gmail.com>" --url "http://webgarbage.de/" --rpm-user root --rpm-group root -d python-jinja2 -C ./build usr
