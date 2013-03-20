@@ -3,18 +3,23 @@ SHELL := /bin/bash
 NAME=mercurial-wiki
 PKG_NAME=python-mercurial-wiki
 VERSION=0.1
-REVISION=fcfa31643594b18d9cbd7dd3e64899270a37cc02
+REVISION=c64043853df20a7c759e9763337f9b68986cb68a
 USERNAME=brejoc
 
-.PHONY: all clean prepare package_deb
+.PHONY: all desc clean prepare package_deb
+.SILENT: desc
 
-all: clean package_deb
+all: desc
+
+desc:
+	echo "usage: please use either make package_deb or package_rpm"
 
 clean:
 	rm -rf ./src/
 	rm -rf ./build/
-	rm -f $(PKG_NAME)_$(VERSION)_all.deb
+	rm -f $(PKG_NAME)_*_all.deb
 	rm -f $(PKG_NAME)-*.noarch.rpm
+	rm -f python-bottle-*.noarch.rpm
 
 prepare:
 	mkdir ./src
@@ -29,11 +34,11 @@ prepare:
 	cp -r ./src/mercurial-wiki/static ./src/mercurial-wiki/views ./build/usr/local/share/mercurial-wiki/
 	pushd ./build/usr/local/bin; ln -s ../mercurial-wiki/hgwiki.py hgwiki; popd;
 
-prepare_rpm:
-	cp ./src/mercurial-wiki/bottle.py ./build/usr/local/mercurial-wiki/.
+package_dep_rpm:
+	fpm -s python -t rpm bottle
 
-package_deb: prepare
+package_deb: clean prepare
 	fpm -s dir -t deb -n $(PKG_NAME) -v $(VERSION) -a all --license GPLv3 -m "Jochen Breuer <brejoc@gmail.com>" --url "http://webgarbage.de/" --deb-user root --deb-group root -d python-bottle -d python-jinja2 -C ./build usr
 
-package_rpm: prepare prepare_rpm
-	fpm -s dir -t rpm -n $(PKG_NAME) -v $(VERSION) -a all --license GPLv3 -m "Jochen Breuer <brejoc@gmail.com>" --url "http://webgarbage.de/" --rpm-user root --rpm-group root -d python-jinja2 -C ./build usr
+package_rpm: clean prepare package_dep_rpm
+	fpm -s dir -t rpm -n $(PKG_NAME) -v $(VERSION) -a all --license GPLv3 -m "Jochen Breuer <brejoc@gmail.com>" --url "http://webgarbage.de/" --rpm-user root --rpm-group root -d python-bottle -d python-jinja2 -C ./build usr
