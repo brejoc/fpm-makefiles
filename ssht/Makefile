@@ -1,5 +1,6 @@
 NAME=ssht
-VERSION=9f2752816da6102c86fee14bf3685c0d8046eeb8
+REVISION=9f2752816da6102c86fee14bf3685c0d8046eeb8
+VERSION=0.1.hg.$(REVISION)
 
 .PHONY: all clean package_deb package_rpm prepare
 
@@ -11,7 +12,7 @@ clean:
 	rm -f *.rpm
 
 prepare:
-	wget https://bitbucket.org/brejoc/misc/raw/$(VERSION)/ssh/ssht
+	wget https://bitbucket.org/brejoc/misc/raw/$(REVISION)/ssh/ssht
 	chmod +x ssht
 
 package_deb: prepare
