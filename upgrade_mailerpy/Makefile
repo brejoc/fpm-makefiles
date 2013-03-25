@@ -2,7 +2,8 @@ SHELL := /bin/bash
 
 NAME=upgrade_mailerpy
 PKG_NAME=python-upgrade-mailer
-VERSION=0a2da7269b02710784558e15d11a5c056edf1d35
+REVISION=0a2da7269b02710784558e15d11a5c056edf1d35
+VERSION=0.1.hg.$(REVISION)
 
 
 .PHONY: all clean prepare package_deb
@@ -19,8 +20,8 @@ prepare:
 	mkdir ./src
 	mkdir -p ./build/usr/local/bin
 	mkdir -p ./build/etc
-	wget -P ./src https://bitbucket.org/brejoc/$(NAME)/raw/$(VERSION)/upgrade_mailer.py
-	wget -P ./src https://bitbucket.org/brejoc/$(NAME)/raw/$(VERSION)/upgrade_mailer_py.ini
+	wget -P ./src https://bitbucket.org/brejoc/$(NAME)/raw/$(REVISION)/upgrade_mailer.py
+	wget -P ./src https://bitbucket.org/brejoc/$(NAME)/raw/$(REVISION)/upgrade_mailer_py.ini
 	cp ./src/upgrade_mailer.py ./build/usr/local/bin/
 	cp ./src/upgrade_mailer_py.ini ./build/etc/
 	cp -r ./cfg/cron.daily ./build/etc/
