@@ -12,7 +12,8 @@ desc:
 	echo "usage: please use either make package_deb or package_rpm"
 
 clean:
-	rm -f *.deb
+	rm -f python-$(NAME)*.deb
+	rm -f python-$(NAME)*.rpm
 
 prepare:
 	# nothing to do here
