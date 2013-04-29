@@ -1,0 +1,26 @@
+# use glob syntax.
+syntax: glob
+
+.DS_Store
+.svn
+*.svn-base
+.cvs
+*.elc
+*.pyc
+*~
+.*.swp
+nbproject
+build/
+*.mode1v3
+*.pbxuser
+*.db
+*.orig
+*.deb
+*.rpm
+**/src/
+**/build/
+
+# switch to regexp syntax.
+syntax: regexp
+^.pc/
+^.idea/
