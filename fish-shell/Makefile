@@ -29,6 +29,24 @@ package_deb: prepare
 	    -t deb \
 	    -n $(PKG_NAME) \
 	    -v $(VERSION) \
+	    --deb-user root \
+	    --deb-group root \
+	    -C ./build \
+	    --config-files "/etc/fish/config.fish" \
+	    -d "xsel" \
+	    -d "libc6" \
+	    -d "lynx" \
+	    -d "bc" \
+	    -d "gettext" \
+	    usr
+
+package_rpm: prepare
+	fpm -s dir \
+	    -t rpm \
+	    -n $(PKG_NAME) \
+	    -v $(VERSION) \
+	    --rpm-user root \
+	    --rpm-group root \
 	    -C ./build \
 	    --config-files "/etc/fish/config.fish" \
 	    -d "xsel" \
