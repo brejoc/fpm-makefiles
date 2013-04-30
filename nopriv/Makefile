@@ -4,8 +4,8 @@ NAME=nopriv
 PKG_NAME=$(NAME)
 REVISION=feec1046f4f82e6eac8289763e58076c96bed484
 VERSION=0.1.git.$(REVISION)
-#GIT_REPO=https://github.com/RaymiiOrg/NoPriv.git
-GIT_REPO=https://github.com/brejoc/NoPriv.git
+GIT_REPO=https://github.com/RaymiiOrg/NoPriv.git
+#GIT_REPO=https://github.com/brejoc/NoPriv.git
 PYTHON_INSTALL_DIR=`python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`
 
 .PHONY: all clean package_deb package_rpm prepare
