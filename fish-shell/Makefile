@@ -25,7 +25,6 @@ prepare: clean
 
 
 package_deb: prepare
-	# dependencies: xsel
 	fpm -s dir \
 	    -t deb \
 	    -n $(PKG_NAME) \
@@ -33,4 +32,8 @@ package_deb: prepare
 	    -C ./build \
 	    --config-files "/etc/fish/config.fish" \
 	    -d "xsel" \
+	    -d "libc6" \
+	    -d "lynx" \
+	    -d "bc" \
+	    -d "gettext" \
 	    usr
