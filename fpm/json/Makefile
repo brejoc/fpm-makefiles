@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 NAME=json
-VERSION=1.7.7
+VERSION=1.6.6
 
 .PHONY: all clean prepare package_deb
 .SILENT: desc
