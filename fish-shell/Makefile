@@ -2,8 +2,9 @@ SHELL := /bin/bash
 
 NAME=fish-shell
 PKG_NAME=fish
-REVISION=6496adf101d6cd04b2d579509454c17f1965281f
-VERSION=1.23.git.$(REVISION)
+REVISION=7abf6c71ad113affcfbb101c80e309d1aaa4bddb
+DATE_OF_REV=20130505
+PKG_VERSION=2.0.0~git$(DATE_OF_REV)-brejoc1
 
 .PHONY: all clean prepare package_deb
 
@@ -28,7 +29,7 @@ package_deb: prepare
 	fpm -s dir \
 	    -t deb \
 	    -n $(PKG_NAME) \
-	    -v $(VERSION) \
+	    -v $(PKG_VERSION) \
 	    --deb-user root \
 	    --deb-group root \
 	    -C ./build \
@@ -44,7 +45,7 @@ package_rpm: prepare
 	fpm -s dir \
 	    -t rpm \
 	    -n $(PKG_NAME) \
-	    -v $(VERSION) \
+	    -v $(PKG_VERSION) \
 	    --rpm-user root \
 	    --rpm-group root \
 	    -C ./build \
