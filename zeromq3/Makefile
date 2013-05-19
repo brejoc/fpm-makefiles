@@ -26,7 +26,7 @@ prepare:
 	pushd src/zeromq-$(VERSION); ./configure && make && make install DESTDIR=../../../build/; popd;
 
 
-package_deb:
+package_deb: prepare
 	fpm -s dir \
 	    -t deb \
 	    -m "Jochen Breuer <brejoc@gmail.com>" \
