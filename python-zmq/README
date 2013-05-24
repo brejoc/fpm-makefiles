@@ -1,0 +1,2 @@
+The correct version of zeromq should be installed prior to the generation of this package.
+Also python-dev is needed to compile this.
