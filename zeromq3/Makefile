@@ -23,7 +23,7 @@ prepare:
 	mkdir ./build
 	curl http://download.zeromq.org/zeromq-$(VERSION).tar.gz > ./src/zeromq.tar.gz
 	pushd src; tar xf zeromq.tar.gz; popd;
-	pushd src/zeromq-$(VERSION); ./configure && make && make install DESTDIR=../../../build/; popd;
+	pushd src/zeromq-$(VERSION); ./configure && make && make install DESTDIR=`pwd`/../../build/; popd;
 
 
 package_deb: prepare
