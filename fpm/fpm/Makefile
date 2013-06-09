@@ -25,6 +25,8 @@ package_deb: prepare
 	    -v $(VERSION) \
 	    --deb-user root \
 	    --deb-group root \
+	    -d "ruby1.8 (>= 0)" \
+	    -d "rubygems1.8 (>= 1.8.15)" \
 	    $(NAME)
 
 package_rpm: prepare
@@ -34,4 +36,6 @@ package_rpm: prepare
 	    -v $(VERSION) \
 	    --rpm-user root \
 	    --rpm-group root \
+	    -d "ruby1.8" \
+	    -d "rubygems1.8" \
 	    $(NAME)
