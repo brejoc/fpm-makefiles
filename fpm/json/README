@@ -1,1 +1,2 @@
 ruby1.8-dev needs to be installed to compile this package.
+Make sure ruby 1.9 is not installed if you don't want to use it or 1.9 will be default.
