@@ -3,7 +3,7 @@ SHELL := /bin/bash
 NAME=mercurial-wiki
 PKG_NAME=python-mercurial-wiki
 REVISION=c64043853df20a7c759e9763337f9b68986cb68a
-VERSION=0.1.git.$(REVISION)
+VERSION=0.1~hg20130319-precise1
 USERNAME=brejoc
 
 .PHONY: all desc clean prepare package_deb
