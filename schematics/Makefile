@@ -1,33 +1,41 @@
 SHELL := /bin/bash
 
 NAME=schematics
-PKG_NAME=python-$(NAME)
-REVISION=b856ffba5f9cb928dd58ed90524bd819715bed26
-VERSION=0.5.git.$(REVISION)
-GIT_REPO=https://github.com/j2labs/schematics.git
-PYTHON_INSTALL_DIR=`python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`
+VERSION=0.6
 
-.PHONY: all clean package_deb package_rpm prepare
+.PHONY: all clean prepare package_deb
+.SILENT: desc
 
-all: clean package_deb
+all: desc
+
+desc:
+	echo "usage: please use either make package_deb or package_rpm"
 
 clean:
-	rm -rf ./build
-	rm -rf ./src
 	rm -f python-$(NAME)*.deb
 	rm -f python-$(NAME)*.rpm
 
 prepare:
-	mkdir ./src
-	mkdir ./build
-	git clone $(GIT_REPO) src/schematics
-	pushd ./src/schematics/; git checkout $(REVISION); popd;
-	mkdir -p ./build$(PYTHON_INSTALL_DIR)
-	cp -r ./src/schematics/schematics ./build$(PYTHON_INSTALL_DIR)/.
-	
+	# nothing to do here
 
 package_deb: prepare
-	fpm -s dir -t deb -n $(PKG_NAME) -v $(VERSION) -a all --license "Copyright 2012 J2 Labs LLC. All rights reserved." --description "Python Data Structures for Humans." -m "Jochen Breuer <brejoc@gmail.com>" --url "https://github.com/j2labs/schematics" --deb-user root --deb-group root  -C ./build usr
+	fpm -s python \
+	    -t deb \
+	    -m "Jochen Breuer <brejoc@gmail.com>" \
+	    --license "BSD" \
+	    -v $(VERSION) \
+	    --deb-user root \
+	    --deb-group root \
+	    -d "python2.7" \
+	    $(NAME)
 
 package_rpm: prepare
-	fpm -s dir -t rpm -n $(PKG_NAME) -v $(VERSION) -a all --license "Copyright 2012 J2 Labs LLC. All rights reserved." --description "Python Data Structures for Humans." -m "Jochen Breuer <brejoc@gmail.com>" --url "https://github.com/j2labs/schematics" --rpm-user root --rpm-group root  -C ./build usr
+	fpm -s python \
+	    -t rpm \
+	    -m "Jochen Breuer <brejoc@gmail.com>" \
+	    --license " BSD" \
+	    -v $(VERSION) \
+	    --deb-user root \
+	    --deb-group root \
+	    -d "python2.7" \
+	    $(NAME)
