@@ -35,5 +35,10 @@ package_deb: prepare
 	    -v $(PKG_VERSION) \
 	    --deb-user root \
 	    --deb-group root \
+	    -d "libc6 (>= 2.15)" \
+	    -d "libgcc1 (>= 1:4.1.1)" \
+	    -d "libpgm-5.1-0 (>= 5.1.116~dfsg)" \
+	    -d "libstdc++6 (>= 4.2.1)" \
+	    -d "libuuid1 (>= 2.16) " \
 	    -C build \
 	    usr
