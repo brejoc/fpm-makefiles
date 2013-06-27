@@ -21,4 +21,15 @@ prepare:
 	chmod 644 ./build/etc/udev/rules.d/$(FILENAME) 
 
 package_deb: prepare
-	fpm -s dir -t deb -n $(NAME) -v $(VERSION) -a all --license GPLv3 -m "Jochen Breuer <brejoc@gmail.com>" --url "http://webgarbage.de/" --deb-user root --deb-group root -C ./build etc
+	fpm -s dir \
+	    -t deb \
+	    -n $(NAME) \
+	    -v $(VERSION) \
+	    -a all \
+	    --license GPLv3 \
+	    -m "Jochen Breuer <brejoc@gmail.com>" \
+	    --url "http://webgarbage.de/" \
+	    --deb-user root \
+	    --deb-group root \
+	    -C ./build \
+	    etc
