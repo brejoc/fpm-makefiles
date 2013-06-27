@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 NAME=fpm
-VERSION=0.4.29
+VERSION=0.4.32
 
 .PHONY: all clean prepare package_deb
 .SILENT: desc
