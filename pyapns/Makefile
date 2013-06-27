@@ -12,8 +12,8 @@ desc:
 	echo "usage: please use either make package_deb or package_rpm"
 
 clean:
-	rm -f python-$(NAME)*.deb
-	rm -f python-$(NAME)*.rpm
+	rm -f $(NAME)*.deb
+	rm -f $(NAME)*.rpm
 
 prepare:
 	# nothing to do here
@@ -27,7 +27,9 @@ package_deb: prepare
 	    --deb-user root \
 	    --deb-group root \
 	    --no-python-dependencies \
+	    --no-python-fix-name \
             -d "python2.7" \
+	    -d "python-epoll (>= 1.0)" \
 	    -d "python-twisted (>= 8.2.0)" \
 	    -d "python-openssl (>= 0.10)" \
             -d "python (>=2.7.1-0ubuntu2)" \
