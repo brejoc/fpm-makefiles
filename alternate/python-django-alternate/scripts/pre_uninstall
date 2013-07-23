@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# remove all pyc files - otherwise apt-get can't remove the folders.
+find /usr/local/alternate/django-1.4.5/ -type f -name "*.pyc" -delete;
