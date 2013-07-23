@@ -1,0 +1,1 @@
+apnsclient has python-pyopenssl as dependency, but for Ubuntu it has to be python-openssl without 'py'. Therefore --no-python-dependencies is activated.
