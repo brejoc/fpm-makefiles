@@ -3,7 +3,7 @@ SHELL := /bin/bash
 NAME=grappelli
 PKG_NAME=python-$(NAME)-alternate
 VERSION=2.4.5
-PKG_VERSION=$(VERSION)-dajool2
+PKG_VERSION=$(VERSION)-dajool3
 
 .PHONY: all desc clean prepare package_deb
 .SILENT: desc
@@ -34,6 +34,7 @@ package_deb: clean prepare
 	    --license BSD \
 	    -m "Jochen Breuer <breuer@dajool.com>" \
 	    --url "http://dajool.com/" \
+	    --after-install ./scripts/after_install \
 	    --before-remove ./scripts/pre_uninstall \
             -d "python2.7" \
             -d "python (>=2.7.1-0ubuntu2)" \

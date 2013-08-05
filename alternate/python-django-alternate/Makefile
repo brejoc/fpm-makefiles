@@ -3,7 +3,7 @@ SHELL := /bin/bash
 NAME=django
 PKG_NAME=python-django-alternate
 VERSION=1.4.5
-PKG_VERSION=$(VERSION)-dajool2
+PKG_VERSION=$(VERSION)-dajool3
 
 .PHONY: all desc clean prepare package_deb
 .SILENT: desc
@@ -17,6 +17,7 @@ clean:
 	rm -rf ./src/
 	rm -rf ./build/
 	rm -f $(PKG_NAME)_*_all.deb
+
 
 prepare:
 	mkdir ./src
@@ -34,6 +35,7 @@ package_deb: clean prepare
 	    --license BSD \
 	    -m "Jochen Breuer <brejoc@gmail.com>" \
 	    --url "http://dajool.com/" \
+	    --after-install ./scripts/after_install \
 	    --before-remove ./scripts/pre_uninstall \
             -d "python2.7" \
             -d "python (>=2.7.1-0ubuntu2)" \
