@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 NAME=gunicorn
-VERSION=0.17.4
+VERSION=17.5
 
 .PHONY: all clean prepare package_deb
 .SILENT: desc
