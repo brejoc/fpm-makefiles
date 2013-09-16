@@ -1,9 +1,9 @@
 SHELL := /bin/bash
 
 NAME=django
-PKG_NAME=python-django-alternate
-VERSION=1.4.5
-PKG_VERSION=$(VERSION)-dajool3
+VERSION=1.4.8
+PKG_NAME=python-django-$(VERSION)-alternate
+PKG_VERSION=$(VERSION)-dajool1
 
 .PHONY: all desc clean prepare package_deb
 .SILENT: desc
