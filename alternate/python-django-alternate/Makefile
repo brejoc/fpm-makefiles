@@ -22,9 +22,9 @@ clean:
 prepare:
 	mkdir ./src
 	mkdir -p ./build/usr/local/alternate/$(NAME)-$(VERSION)
-	wget -O ./src/django.tar.gz https://www.djangoproject.com/download/1.4.5/tarball/
+	wget -O ./src/django.tar.gz https://www.djangoproject.com/download/$(VERSION)/tarball/
 	pushd ./src; tar xvf $(NAME).tar.gz; popd;
-	pushd ./src/Django-1.4.5/django/; cp -R * ../../../build/usr/local/alternate/$(NAME)-$(VERSION)/.; popd;
+	pushd ./src/Django-$(VERSION)/django/; cp -R * ../../../build/usr/local/alternate/$(NAME)-$(VERSION)/.; popd;
 
 package_deb: clean prepare
 	fpm -s dir \
