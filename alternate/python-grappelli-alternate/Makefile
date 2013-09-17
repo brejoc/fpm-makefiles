@@ -1,9 +1,10 @@
 SHELL := /bin/bash
 
 NAME=grappelli
-PKG_NAME=python-$(NAME)-alternate
-VERSION=2.4.5
+VERSION=2.4.6
+PKG_NAME=python-$(NAME)-$(VERSION)-alternate
 PKG_VERSION=$(VERSION)-dajool3
+
 
 .PHONY: all desc clean prepare package_deb
 .SILENT: desc
@@ -21,9 +22,9 @@ clean:
 prepare:
 	mkdir ./src
 	mkdir -p ./build/usr/local/alternate/$(NAME)-$(VERSION)
-	wget -O ./src/$(NAME).tar.gz https://pypi.python.org/packages/source/d/django-grappelli/django-grappelli-2.4.5.tar.gz
+	wget -O ./src/$(NAME).tar.gz https://pypi.python.org/packages/source/d/django-grappelli/django-grappelli-$(VERSION).tar.gz
 	pushd ./src; tar xf $(NAME).tar.gz; popd;
-	pushd ./src/django-grappelli-2.4.5/grappelli/; cp -R * ../../../build/usr/local/alternate/$(NAME)-$(VERSION)/.; popd;
+	pushd ./src/django-grappelli-$(VERSION)/grappelli/; cp -R * ../../../build/usr/local/alternate/$(NAME)-$(VERSION)/.; popd;
 
 package_deb: clean prepare
 	fpm -s dir \
