@@ -36,6 +36,7 @@ package_deb: prepare
 	    --license GPLv3 \
 	    -m "Jochen Breuer <brejoc@gmail.com>" \
 	    --url "http://todotxt.com/" \
+	    --description "Future-Proof task tracking in a file you control." \
 	    --deb-user root \
 	    --deb-group root \
 	    --config-files /etc/todo.cfg \
