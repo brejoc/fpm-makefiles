@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+curl http://pelicanbay.de/keys/public1.key | apt-key add -
+echo "******************************************************************"
+echo "* Please update your repository information: sudo apt-get update *"
+echo "******************************************************************"

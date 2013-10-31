@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+apt-key remove 1C9F6BF9
+mv /etc/apt/sources.list.d/pelicanbay.list /etc/apt/sources.list.d/pelicanbay.list.save
+echo "******************************************************************"
+echo "* Please update your repository information: sudo apt-get update *"
+echo "******************************************************************"
