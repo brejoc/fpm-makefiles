@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Author: Jochen Breuer <brejoc@gmail.com>
+# Copyright: Public Domain
+# This script will connect to an existing remote tmux session on the
+# target server or open a new one.
+# I'm running fish-shell on all servers - if you are using bash you'll
+# have to change "tmxu a; or tmux" to "tmux a || tmux". 
+
+if [ -z "$1" ]; then
+    echo "usage: $0 <hostname>";
+    exit 1;
+fi
+$(which ssh) $1 -t "tmux a; or tmux";
+exit $?
