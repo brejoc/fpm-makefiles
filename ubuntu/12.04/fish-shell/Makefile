@@ -2,9 +2,9 @@ SHELL := /bin/bash
 
 NAME=fish-shell
 PKG_NAME=fish
-REVISION=7abf6c71ad113affcfbb101c80e309d1aaa4bddb
-DATE_OF_REV=20130505
-PKG_VERSION=2.0.0~git$(DATE_OF_REV)-brejoc1
+REVISION=6d542b8bb0ea96424af6eaf952ee89fc846f622a
+DATE_OF_REV=20131103
+PKG_VERSION=2.1.0~git$(DATE_OF_REV)-brejoc1
 
 .PHONY: all clean prepare package_deb
 
