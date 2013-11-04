@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 NAME=apns-client
-VERSION=0.1.6
+VERSION=0.1.8
 
 .PHONY: all clean prepare package_deb
 .SILENT: desc
