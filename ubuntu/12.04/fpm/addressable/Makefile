@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
-NAME=json
-VERSION=1.8.1
+NAME=addressable
+VERSION=2.3.5
 
 .PHONY: all clean prepare package_deb
 .SILENT: desc

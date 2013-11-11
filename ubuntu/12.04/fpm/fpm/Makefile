@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 NAME=fpm
-VERSION=0.4.32
+VERSION=0.4.42
 
 .PHONY: all clean prepare package_deb
 .SILENT: desc
@@ -9,11 +9,10 @@ VERSION=0.4.32
 all: desc
 
 desc:
-	echo "usage: please use either make package_deb or package_rpm"
+	echo "usage: make package_deb"
 
 clean:
 	rm -f rubygem-$(NAME)*.deb
-	rm -f rubygem-$(NAME)*.rpm
 
 prepare:
 	# nothing to do here
@@ -27,15 +26,4 @@ package_deb: prepare
 	    --deb-group root \
 	    -d "ruby1.8 (>= 0)" \
 	    -d "rubygems1.8 (>= 1.8.15)" \
-	    $(NAME)
-
-package_rpm: prepare
-	fpm -s gem \
-	    -t rpm \
-	    -m "Jochen Breuer <brejoc@gmail.com>" \
-	    -v $(VERSION) \
-	    --rpm-user root \
-	    --rpm-group root \
-	    -d "ruby1.8" \
-	    -d "rubygems1.8" \
 	    $(NAME)

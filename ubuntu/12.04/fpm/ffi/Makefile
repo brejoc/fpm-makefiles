@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
-NAME=json
-VERSION=1.8.1
+NAME=ffi
+VERSION=1.9.3
 
 .PHONY: all clean prepare package_deb
 .SILENT: desc

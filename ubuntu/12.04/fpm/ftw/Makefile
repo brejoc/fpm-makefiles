@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
-NAME=json
-VERSION=1.8.1
+NAME=ftw
+VERSION=0.0.36
 
 .PHONY: all clean prepare package_deb
 .SILENT: desc
@@ -24,6 +24,6 @@ package_deb: prepare
 	    -v $(VERSION) \
 	    --deb-user root \
 	    --deb-group root \
-            -d "ruby1.8 (>= 0)" \
-            -d "rubygems1.8 (>= 1.8.15)" \
+	    -d "ruby1.8 (>= 0)" \
+	    -d "rubygems1.8 (>= 1.8.15)" \
 	    $(NAME)

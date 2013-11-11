@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
-NAME=open4
-VERSION=1.3.0
+NAME=childprocess
+VERSION=0.3.9
 
 .PHONY: all clean prepare package_deb
 .SILENT: desc
@@ -9,11 +9,10 @@ VERSION=1.3.0
 all: desc
 
 desc:
-	echo "usage: please use either make package_deb or package_rpm"
+	echo "usage: make package_deb"
 
 clean:
 	rm -f rubygem-$(NAME)*.deb
-	rm -f rubygem-$(NAME)*.rpm
 
 prepare:
 	# nothing to do here
@@ -25,17 +24,6 @@ package_deb: prepare
 	    -v $(VERSION) \
 	    --deb-user root \
 	    --deb-group root \
-            -d "ruby1.8 (>= 0)" \
-            -d "rubygems1.8 (>= 1.8.15)" \
-	    $(NAME)
-
-package_rpm: prepare
-	fpm -s gem \
-	    -t rpm \
-	    -m "Jochen Breuer <brejoc@gmail.com>" \
-	    -v $(VERSION) \
-	    --rpm-user root \
-	    --rpm-group root \
             -d "ruby1.8 (>= 0)" \
             -d "rubygems1.8 (>= 1.8.15)" \
 	    $(NAME)

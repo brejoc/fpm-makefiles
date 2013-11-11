@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
-NAME=json
-VERSION=1.8.1
+NAME=http_parser.rb
+VERSION=0.5.3
 
 .PHONY: all clean prepare package_deb
 .SILENT: desc
@@ -12,7 +12,7 @@ desc:
 	echo "usage: make package_deb"
 
 clean:
-	rm -f rubygem-$(NAME)*.deb
+	rm -f rubygem-*.deb
 
 prepare:
 	# nothing to do here
@@ -24,6 +24,6 @@ package_deb: prepare
 	    -v $(VERSION) \
 	    --deb-user root \
 	    --deb-group root \
-            -d "ruby1.8 (>= 0)" \
-            -d "rubygems1.8 (>= 1.8.15)" \
+	    -d "ruby1.8 (>= 0)" \
+	    -d "rubygems1.8 (>= 1.8.15)" \
 	    $(NAME)
