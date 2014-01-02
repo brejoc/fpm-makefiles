@@ -1,8 +1,9 @@
 SHELL := /bin/bash
 
 NAME=uWSGI
+NAME_LOWER=$(shell echo $(NAME) | tr "A-Z" "a-z")
 VERSION=2.0
-ARCH=`uname -m`
+ARCH=$(shell uname -m)
 
 .PHONY: all clean prepare package_deb
 .SILENT: desc
@@ -13,7 +14,7 @@ desc:
 	echo "usage: please use either make package_deb or package_rpm"
 
 clean:
-	rm -f python-*.deb
+	rm -f python-${NAME_LOWER}*.deb
 
 prepare:
 	# nothing to do here
