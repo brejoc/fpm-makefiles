@@ -25,6 +25,15 @@ package_deb: prepare
 	    -v $(VERSION) \
 	    --deb-user root \
 	    --deb-group root \
+	    --no-auto-depends \
+	    -d "python-django (>= 1.4)" \
+	    -d "python-django (<< 1.6)" \
+	    -d "python-django-classy-tags (>= 0.3.4.1)" \
+	    -d "python-django-south (>= 0.7.2)" \
+	    -d "python-html5lib" \
+	    -d "python-django-mptt (>= 0.5.1)" \
+	    -d "python-django-mptt (<< 0.5.3)" \
+	    -d "python-django-sekizai (>= 0.7)" \
 	    -d "python2.7" \
             -d "python (>=2.7.1-0ubuntu2)" \
             -d "python (<<2.8)" \
