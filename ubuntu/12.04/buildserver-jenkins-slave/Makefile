@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 NAME=dajool-jenkins-slave
-VERSION=0.1
+VERSION=0.2
 
 .PHONY: all clean prepare package_deb
 .SILENT: desc
@@ -37,12 +37,15 @@ package_deb: prepare
             -d "build-essential" \
             -d "mercurial" \
             -d "git" \
-            -d "svn" \
+            -d "subversion" \
             -d "cvs" \
             -d "python-invoke" \
             -d "python-jinja2" \
             -d "python-dev" \
+	    -d "python-setuptools" \
             -d "ruby-dev" \
             -d "rubygem-fpm" \
+	    -d "autoconf" \
+	    -d "libncurses5-dev" \
             --prefix /etc \
             buildserver-jenkins-slave
