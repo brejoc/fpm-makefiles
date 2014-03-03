@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 NAME=invoke
-VERSION=0.4.0
+VERSION=0.7.0
 
 .PHONY: all clean prepare package_deb
 .SILENT: desc
