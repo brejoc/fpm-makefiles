@@ -1,6 +1,7 @@
 SHELL := /bin/bash
 
 NAME=django_polymorphic
+PKGNAME=python-django-polymorphic
 VERSION=0.5.3
 
 .PHONY: all clean prepare package_deb
@@ -12,7 +13,7 @@ desc:
 	echo "usage: please use make package_deb"
 
 clean:
-	rm -f python-$(NAME)*.deb
+	rm -f $(PKGNAME)*.deb
 
 prepare:
 	# nothing to do here
