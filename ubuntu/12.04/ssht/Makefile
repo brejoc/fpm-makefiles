@@ -1,6 +1,6 @@
 NAME=ssht
-REVISION=9f2752816da6102c86fee14bf3685c0d8046eeb8
-VERSION=0.1.hg.$(REVISION)
+REVISION=adfacf4b043bfcc627cfa52a9c2ab3464227b5d9
+VERSION=0.2.hg.$(REVISION)
 
 .PHONY: all clean package_deb package_rpm prepare
 
