@@ -21,6 +21,7 @@ prepare: clean
 	mkdir ./src
 	mkdir ./build
 	git clone https://github.com/fish-shell/fish-shell.git src/fish-shell	
+	cd src/fish-shell; git checkout $(REVISION)
 	# BSD would use gmake instead of make
 	pushd ./src/fish-shell/; autoconf; ./configure --prefix=/usr; make; make install DESTDIR=../../build; popd;
 
