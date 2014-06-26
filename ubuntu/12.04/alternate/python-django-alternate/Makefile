@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 NAME=django
-VERSION=1.4.8
+VERSION=1.4.13
 PKG_NAME=python-django-$(VERSION)-alternate
 PKG_VERSION=$(VERSION)-dajool1
 
